@@ -14,13 +14,19 @@ RUN npm install -g pnpm && pnpm install --frozen-lockfile
 COPY . .
 
 # Устанавливаем переменную окружения NODE_ENV в production
-ENV NODE_ENV=production
-
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
 # Строим приложение
 RUN pnpm build
 
 # Открываем порт, на котором будет работать приложение
 EXPOSE 3000
+
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "wget", "-q0", "http://localhost:3000/health" ]
+
 
 # Команда для запуска приложения
 CMD ["pnpm", "start"]
