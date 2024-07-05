@@ -43,6 +43,8 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
+          echo ${{ secrets.SSH_PASSWORD }} | sudo -S bash -c '
           export SCRIPT_PATH="${{ secrets.SCRIPT_PATH }}"
           chmod +x $SCRIPT_PATH
           $SCRIPT_PATH
+          '
