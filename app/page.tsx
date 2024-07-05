@@ -12,6 +12,9 @@ export default function Home() {
       <p>Database URL: {process.env.DATABASE_URL}</p>
       <p>Environment: {process.env.NEXT_PUBLIC_ENVIRONMENT}</p>
       <p>NEXT_PUBLIC_API_URL: {process.env.NEXT_PUBLIC_API_URL}</p>
+      <p>NODE_ENV: {process.env.NODE_ENV}</p>
+      <p>HOSTNAME: {process.env.HOSTNAME}</p>
+      <p>PATH: {process.env.PATH}</p>
     </div>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
           <a
