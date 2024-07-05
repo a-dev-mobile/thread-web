@@ -16,6 +16,7 @@ COPY . .
 # Устанавливаем переменную окружения NODE_ENV в production
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
+
 # Строим приложение
 RUN pnpm build
 
