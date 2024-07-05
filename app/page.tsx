@@ -9,12 +9,12 @@ export default function Home() {
           <code className="font-mono font-bold">app/page.tsx</code>
         </p>
         <div>
-      <p>Database URL: {process.env.DATABASE_URL}</p>
-      <p>Environment: {process.env.NEXT_PUBLIC_ENVIRONMENT}</p>
-      <p>NEXT_PUBLIC_API_URL: {process.env.NEXT_PUBLIC_API_URL}</p>
-      <p>NODE_ENV: {process.env.NODE_ENV}</p>
-      <p>HOSTNAME: {process.env.HOSTNAME}</p>
-      <p>PATH: {process.env.PATH}</p>
+      <p>1Database URL: {process.env.DATABASE_URL}</p>
+      <p>2Environment: {process.env.NEXT_PUBLIC_ENVIRONMENT}</p>
+      <p>3NEXT_PUBLIC_API_URL: {process.env.NEXT_PUBLIC_API_URL}</p>
+      <p>4NODE_ENV: {process.env.NODE_ENV}</p>
+      <p>5HOSTNAME: {process.env.HOSTNAME}</p>
+      <p>6PATH: {process.env.PATH}</p>
     </div>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
           <a
