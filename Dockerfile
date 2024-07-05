@@ -13,6 +13,9 @@ RUN npm install -g pnpm && pnpm install --frozen-lockfile
 # Копируем остальные файлы приложения в рабочую директорию
 COPY . .
 
+# Устанавливаем переменную окружения NODE_ENV в production
+ENV NODE_ENV=production
+
 # Строим приложение
 RUN pnpm build
 

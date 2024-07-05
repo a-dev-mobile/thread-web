@@ -3,11 +3,11 @@
 # Функция для чтения переменных из настроек VSCode
 get_vscode_setting() {
     setting_name=$1
-    jq -r ".\"$setting_name\"" < "$VSCODE_SETTINGS"
+    jq -r ".\"$setting_name\"" <"$VSCODE_SETTINGS"
 }
 
 # Проверка наличия jq
-if ! command -v jq > /dev/null; then
+if ! command -v jq >/dev/null; then
     echo "Error: jq is not installed."
     exit 1
 fi
@@ -27,8 +27,8 @@ DOCKER_HUB_ACCESS_TOKEN=$(get_vscode_setting "dockerHub.accessToken")
 DOCKER_IMAGE="$(get_vscode_setting "docker.imageName")"
 
 if [ -z "$DOCKER_HUB_USERNAME" ] || [ -z "$DOCKER_HUB_ACCESS_TOKEN" ] || [ -z "$DOCKER_IMAGE" ]; then
-  echo "Error: Please ensure all Docker settings are set in VSCode."
-  exit 1
+    echo "Error: Please ensure all Docker settings are set in VSCode."
+    exit 1
 fi
 
 # Функция для сборки Docker-образа
@@ -60,21 +60,22 @@ run() {
 
 # Проверка аргументов
 case "$1" in
-    build)
-        build
-        ;;
-    remove)
-        remove
-        ;;
-    update)
-        update
-        ;;
-    run)
-        run
-        ;;
-    *)
-        echo "Usage: $0 {build|remove|update|run}"
-        exit 1
+build)
+    build
+    ;;
+remove)
+    remove
+    ;;
+update)
+    update
+    ;;
+run)
+    run
+    ;;
+*)
+    echo "Usage: $0 {build|remove|update|run}"
+    exit 1
+    ;;
 esac
 
 exit 0
