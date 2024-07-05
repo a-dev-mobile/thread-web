@@ -32,3 +32,17 @@ jobs:
 
     - name: Post build clean-up
       run: docker system prune -f
+
+    - name: Delay before SSH
+      run: sleep 5
+
+    - name: Execute SSH Command
+      uses: appleboy/ssh-action@v0.1.4
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          export SCRIPT_PATH="${{ secrets.SCRIPT_PATH }}"
+          chmod +x $SCRIPT_PATH
+          $SCRIPT_PATH
