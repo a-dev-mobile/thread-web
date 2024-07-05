@@ -1,24 +1,23 @@
-# Use the official Node.js image as the base image
+# Используем официальный образ Node.js в качестве базового
 FROM node:22-alpine
 
-# Set the working directory
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Copy package.json and pnpm-lock.yaml to the working directory
+# Копируем package.json и pnpm-lock.yaml в рабочую директорию
 COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies
-RUN npm install -g pnpm
-RUN pnpm install
+# Устанавливаем pnpm и зависимости
+RUN npm install -g pnpm && pnpm install --frozen-lockfile
 
-# Copy the rest of the application files
+# Копируем остальные файлы приложения в рабочую директорию
 COPY . .
 
-# Build the application
+# Строим приложение
 RUN pnpm build
 
-# Expose the port the app runs on
+# Открываем порт, на котором будет работать приложение
 EXPOSE 3000
 
-# Command to run the application
+# Команда для запуска приложения
 CMD ["pnpm", "start"]
