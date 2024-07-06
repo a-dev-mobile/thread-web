@@ -13,9 +13,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Delay before SSH
-      run: sleep 5
-
     - name: Execute SSH Command
       uses: appleboy/ssh-action@v0.1.4
       with:
