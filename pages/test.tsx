@@ -1,26 +1,29 @@
-
-
 // app/page.tsx
-
-
+import { GetServerSideProps } from 'next';
 import { query } from '../db';
 
-async function fetchDiameters() {
+export const getServerSideProps: GetServerSideProps = async () => {
   let diameters = [];
 
   try {
-    const res = await query('SELECT * FROM metric.diameters ORDER BY id ASC ');
+    const res = await query('SELECT * FROM metric.diameters ORDER BY id ASC');
     diameters = res.rows;
   } catch (err) {
     console.error('Error fetching diameters:', err);
   }
 
-  return diameters;
-}
+  return {
+    props: {
+      diameters,
+    },
+  };
+};
 
-export default async function Home() {
-  const diameters = await fetchDiameters();
+type HomeProps = {
+  diameters: Array<{ id: number; diameter: number }>;
+};
 
+const Home = ({ diameters }: HomeProps) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-2xl font-bold">Diameters</h1>
@@ -44,4 +47,6 @@ export default async function Home() {
       </table>
     </main>
   );
-}
+};
+
+export default Home;
