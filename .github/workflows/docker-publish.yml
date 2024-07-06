@@ -22,6 +22,7 @@ jobs:
         script: |
           echo ${{ secrets.SSH_PASSWORD }} | sudo -S bash -c '
           cd ${{ secrets.PROJECT_PATH }}
+          git remote set-url origin https://github.com/a-dev-mobile/thread-web.git
           git pull
           export SCRIPT_PATH="${{ secrets.SCRIPT_PATH }}"
           chmod +x $SCRIPT_PATH
