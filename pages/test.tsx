@@ -23,10 +23,22 @@ type HomeProps = {
   diameters: Array<{ id: number; diameter: number }>;
 };
 
+
+// Function to get the current time
+function getCurrentTime() {
+  const now = new Date();
+  return now.toLocaleString();
+}
+
 const Home = ({ diameters }: HomeProps) => {
+  const currentTime = getCurrentTime(); 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-2xl font-bold">Diameters</h1>
+      
+      <div className="mb-4">
+        <p>Current Time: {currentTime}</p>
+      </div>
       <table className="table-auto">
         <thead>
           <tr>
