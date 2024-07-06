@@ -27,7 +27,8 @@ export default async function Home() {
       <h1 className="text-2xl font-bold">Diameters</h1>
 
       <div>
-      <p>Database URL: {process.env.DATABASE_URL}</p>
+      {/* <p>Database URL: {process.env.DATABASE_URL}</p> */}
+      <p>NEXT_PUBLIC_API_URL: {process.env.NEXT_PUBLIC_API_URL}</p>
       <p>NEXT_PUBLIC_ENVIRONMENT: {process.env.NEXT_PUBLIC_ENVIRONMENT}</p>
     </div>
 
