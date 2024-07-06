@@ -25,6 +25,12 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-2xl font-bold">Diameters</h1>
+
+      <div>
+      <p>Database URL: {process.env.DATABASE_URL}</p>
+      <p>NEXT_PUBLIC_ENVIRONMENT: {process.env.NEXT_PUBLIC_ENVIRONMENT}</p>
+    </div>
+
       <table className="table-auto">
         <thead>
           <tr>
