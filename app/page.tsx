@@ -18,6 +18,7 @@ async function fetchDiameters() {
   return diameters;
 }
 
+
 export default async function Home() {
   const diameters = await fetchDiameters();
 
