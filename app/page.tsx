@@ -19,22 +19,22 @@ async function fetchDiameters() {
   return diameters;
 }
 
-// Function to get the current time
+
 function getCurrentTime() {
   const now = new Date();
-  return now.toLocaleString(); // You can format this as needed
+  return now.toLocaleString(); 
 }
 
 export default async function Home() {
   const diameters = await fetchDiameters();
-  const currentTime = getCurrentTime(); // Get the current time
+  const currentTime = getCurrentTime();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-2xl font-bold">Diameters</h1>
       
       <div>
-        <p>NEXT_PUBLIC_API_URL: {process.env.NEXT_PUBLIC_API_URL}</p>
+        <p>111NEXT_PUBLIC_API_URL: {process.env.NEXT_PUBLIC_API_URL}</p>
         <p>NEXT_PUBLIC_ENVIRONMENT: {process.env.NEXT_PUBLIC_ENVIRONMENT}</p>
       </div>
 
