@@ -13,18 +13,16 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install SSH Key
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
     - name: Execute SSH Command
       uses: appleboy/ssh-action@v0.1.4
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        password: ${{ secrets.SSH_PASSWORD }}
         script: |
+          echo ${{ secrets.SSH_PASSWORD }} | sudo -S bash -c '
+          cd ${{ secrets.PROJECT_PATH }}
+          git pull
           export SCRIPT_PATH="${{ secrets.SCRIPT_PATH }}"
           chmod +x $SCRIPT_PATH
           $SCRIPT_PATH
