@@ -45,7 +45,7 @@ export default async function Home() {
       <table className="table-auto">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>ID1111</th>
             <th>Diameter</th>
             {/* Add other column headers based on your table structure */}
           </tr>
