@@ -1,0 +1,7 @@
+
+
+
+GET {{LOCALHOST}}/api/v1/metric/diams HTTP/1.1
+Accept: application/json
+X-art: test_X-art
+###
