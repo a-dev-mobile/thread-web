@@ -17,9 +17,9 @@ COPY . .
 RUN npm run build
 
 # Открываем порт, на котором будет работать приложение
-EXPOSE 3000
+EXPOSE 4173
 
-ENV PORT 3000
+ENV PORT 4173
 ENV HOSTNAME "0.0.0.0"
 
 # Команда для запуска приложения
