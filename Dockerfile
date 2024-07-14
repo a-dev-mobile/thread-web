@@ -19,8 +19,5 @@ RUN npm run build
 # Открываем порт, на котором будет работать приложение
 EXPOSE 4173
 
-ENV PORT 4173
-ENV HOSTNAME "0.0.0.0"
-
 # Команда для запуска приложения
 CMD ["npm", "run", "preview"]
